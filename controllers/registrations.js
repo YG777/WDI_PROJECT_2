@@ -3,13 +3,14 @@ const User = require('../models/user');
 function registrationsNew(req, res) {
   return res.render('registrations/new');
 }
-
+//store data in req.session
+//when logged in userds id will be stored
+//this property will be used to check if a valid user logged in
 function registrationsCreate(req, res) {
   User
     .create(req.body)
     .then(user => {
-      req.flash('info', `Thank you for registering, ${user.username}!`);
-      req.sessions.userId = user._id;
+      // req.sessions.userId = user._id;
       res.redirect('/');
     })
     .catch((err) => {

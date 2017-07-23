@@ -42,7 +42,7 @@ gulp.task('serve', ['js', 'sass'], () => {
     files: ['public/**/*.*'],
     reloadDelay: 500,
     notify: false,
-    open: false
+    open: true
   });
 
   return nodemon({ script: 'index.js'})
