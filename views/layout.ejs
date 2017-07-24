@@ -10,12 +10,12 @@
   <body>
      <% include ./partials/navbar %>
     <main>
-      <p>layouts</p>
-          <% for (const type in messages) { %>
-      <p class="alert alert-<%= type %>"><%= messages[type] %></p>
-    <% } %>
+      <p>layouts ejs</p>
+    
       <%- body %>
     </main>
     <% include ./partials/scripts %>
   </body>
 </html>
+
+

@@ -1,37 +1,45 @@
 
-
+<p>showejs vines</p>
 <h1>Show</h1>
-<h2><%= wine.product %></h2>
+ <!-- <h2><%= wine.product %></h2>
 <h4><%= wine.winery %></h4>
 <p><%= wine.description %></p>
 <a class="btn btn-primary" href="/wines">Back</a>
+<% if (locals.isLoggedIn) { %>
 <a class="btn btn-info" href="/wines/<%= wine._id %>/edit">Edit Wine</a>
-
 <form class="" action="/wines/<%= wine._id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <button class="btn btn-danger">Delete Wine</button>
-</form>
-
-
-<!-- <h4>Comments</h4>
-
-<form action="/films/<%= film._id %>" method="post">
-  <input type="text" name="body">
-  <input type="submit" value="Post Comment">
-</form> -->
-
-<!-- <ul>
-  <% film.comments.forEach(comment => { %>
-    <li>
-      <h5><a href="/users/<%= comment.user._id %>"><%= comment.user.username %></a></h5>
-      <p><%= comment.body %></p>
-
-      <% if (comment.user.id === locals.user.id || film.createdBy.id === locals.user.id ) { %>
-        <form action="/films/<%= film._id %>/comments/<%= comment._id %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input class="btn btn-danger" type="submit" value="Delete Comment">
-        </form>
-      <% } %>
-    </li>
-  <% }) %>
-</ul> -->
+  <% } %>
+</form>  -->
+ <% if (locals.isLoggedIn) { %>
+<div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-block">
+          <!-- <a href="/wines/<%= wine.id %>"> -->
+            <h4 class="card-title"><%= wine.product %></h4>
+          </a>
+          <p class="card-text"><%= wine.winery %></p>   
+          <p><%= wine.description %></p>
+        </div>
+        <a href="/wines/<%= wine.id %>/edit" class="btn btn-primary">Edit</a>
+      </div>
+    </div>
+    <% } else { %>
+      div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-block">
+          <a href="/wines/<%= wine.id %>">
+            <h4 class="card-title"><%= wine.product %></h4>
+          </a>
+          <p class="card-text"><%= wine.winery %></p>   
+          <p><%= wine.description %></p>
+        </div>
+      </div>
+    </div>
+ <% } %>
+          
+      
+   

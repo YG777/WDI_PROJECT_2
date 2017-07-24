@@ -12,14 +12,14 @@ Wine.collection.drop();
 
 User
   .create([{
-    username: 'martapz',
-    email: 'ma@ma.co',
+    username: 'kat',
+    email: 'kat@gmail.com',
     password: 'password',
     passwordConfirmation: 'password'
   }])
 
   .then((users) => {
-    console.log(`${users.length} users created!`);
+    // console.log(`${users.length} users created!`);
     return Wine
       .create([{
         product: '62 Anniversario Primitivo di Manduria Riserva 2013',

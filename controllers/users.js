@@ -15,7 +15,6 @@ function usersShow(req, res) {
     });
 }
 
-
 module.exports = {
   show: usersShow
 };

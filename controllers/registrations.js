@@ -10,13 +10,14 @@ function registrationsCreate(req, res) {
   User
     .create(req.body)
     .then(user => {
-      req.flash('info', `Thanks for registering, ${user.username}!`);
-      req.sessions.userId = user._id;
+      // req.flash('info', `Thanks for registering, ${user.username}!`);
+       console.log('info', `Thanks for registering, ${user.username}!`);
+      req.session.userId = user._id;
       res.redirect('/');
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return res.status(400).render('registrations/new', { message: 'Passwords do not match' });
+        return res.status(400).render('registrations/new');
       }
       res.status(500).end();
     });

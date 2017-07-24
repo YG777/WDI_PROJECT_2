@@ -16,9 +16,19 @@
           </a>
           <p class="card-text"><%= wine.winery %></p>   
         </div>
-        <a href="/wines/new" class="btn btn-primary">Add New</a>
       </div>
     </div>
+
+  <% if (locals.isLoggedIn) { %>
+          <a href="/wines/<%= wine.id %>/edit" class="btn btn-primary">Edit</a>
+          <form method="POST" action="/wines/<%= wine.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+           <button class="btn btn-danger">Delete</button>
+           <a href="/wines/new" class="btn btn-primary">Add</a>
+           </form>
+        <% } else { %>
+          
+        <% } %>
 <% }) %>
  </div> 
 

@@ -11,7 +11,8 @@ const users         = require('../controllers/users');
 function secureRoute(req, res, next) {
   if (!req.session.userId) {
     return req.session.regenerate(() => {
-      req.flash('danger', 'You must be logged in to view this content');
+      // req.flash('danger', 'You must be logged in to view this content');
+      console.log('danger', 'You must be logged in to view this content');
       res.redirect('/login');
     });
   }
@@ -35,10 +36,12 @@ router.route('/wines/:id')
   .delete(secureRoute, wines.delete);
 
 router.route('/wines/:id/edit')
-  .get(wines.edit);
-
+  .get(wines.edit)
+  .put(secureRoute, wines.update)
+  .post(secureRoute, wines.create)
+  .delete(secureRoute, wines.delete);
 // router.route('/wines/:winesId/comments/:commentId')
-//   .delete(comments.delete);
+//   .delete(comments.delete);            
 
 router.route('/register')
   .get(registrations.new)
