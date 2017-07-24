@@ -11,7 +11,7 @@ function sessionCreate(req, res) {
       if(!user || !user.validatePassword(req.body.password)) {
         return res.status(401).render('sessions/new', { message: 'Unrecognised credentials'});
       }
-
+      req.flash('info', `Thanks for logging in, ${user.username}!`);
       req.session.userId = user._id;
 
       return res.redirect('/');

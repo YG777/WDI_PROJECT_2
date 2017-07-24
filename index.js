@@ -11,6 +11,8 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const session = require('express-session');
+// this causes the site to slow down hugely
+const flash = require('express-flash');
 const routes = require('./config/routes');
 const User = require('./models/user');
 const app = express();
@@ -50,18 +52,21 @@ app.use((req, res, next) => {
     .then(user => {
       if (!user) {
         return req.session.regenerate(() => {
+          req.flash('danger', 'You must be logged in to view this content');
           res.redirect('/');
         });
       }
 
       req.session.userId = user._id;
-
+      req.user = user;                  
       res.locals.user = user;
       res.locals.isLoggedIn = true;
 
       next();
     });
 });
+
+app.use(flash());
 
 app.use(routes);
 
