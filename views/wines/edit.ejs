@@ -4,9 +4,8 @@
 <div class="row">
     <div class="col-md-8">
       <div class="card">
-         <form method="POST" action="/wines/<%= wine.id %>">
+         <form method="PUT" action="/wines/<%= wine.id %>">
           <input type="hidden" name="_method" value="PUT">
-      
          
           <label for="product">Wine name</label>
           <input type="text" name="product" id="product" placeholder="wine name" class="form-control" value="<%= wine.product %>">
@@ -15,16 +14,11 @@
           <input type="text" name="winery" id="winery" class="form-control" value="<%= wine.winery %>">
 
           <label for="description">Tasting Notes</label>
-          <textarea name="description" id="description" placeholder="tasting notes" class="form-control"><%= wine.description %></textarea>
-    
-          <a class="btn btn-info" href="/wines/<%= wine._id %>/update">Save</a>
-         <form class="" action="/wines/<%= wine._id %>" method="post">
-         <input type="hidden" name="_method" value="delete">
-         <button class="btn btn-danger">Delete</button>   
-        </div>
-      <div>
-   
-     </div>
-  </div> 
-</div>
-                
+          <textarea name="description" id="description" placeholder="tasting notes" class="form-control"><%= wine.description %></textarea> 
+       
+          <input type="hidden" name="_method" value="save">
+          <button class="btn btn-info">Save</button>
+        </form>
+      </div>
+    <div>
+  </div>         

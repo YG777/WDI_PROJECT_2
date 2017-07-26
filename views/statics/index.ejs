@@ -1,5 +1,5 @@
 <h1>indexejs statics</h1>
-
+<%= users  %>
 <div class="row">
 <ul>
   <% users.forEach((user) => { %>
@@ -10,6 +10,8 @@
           <p class="card-text">
             <%= user.email %>
             <%= user.password %>
+            <%= user.wine %>
+
           </p>
         </div>
       </div>

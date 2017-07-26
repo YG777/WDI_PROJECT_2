@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-const statics       = require('../controllers/statics');
-const sessions      = require('../controllers/sessions');
+const statics = require('../controllers/statics');
+const sessions = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
-const wines         = require('../controllers/wines');
-const users         = require('../controllers/users');
-// const comments      = require('../controllers/comments');
+const wines = require('../controllers/wines');
+const users = require('../controllers/users');
+const comments = require('../controllers/comments');
 
 // securing routes - if no userid in the session, back to login
 function secureRoute(req, res, next) {
@@ -31,17 +31,18 @@ router.route('/wines/new')
 
 router.route('/wines/:id')
   .get(wines.show)
-  // .post(secureRoute, comments.create)
+  .post(secureRoute, comments.create)
   .put(secureRoute, wines.update)
   .delete(secureRoute, wines.delete);
 
 router.route('/wines/:id/edit')
   .get(wines.edit)
-  .put(secureRoute, wines.update)
   .post(secureRoute, wines.create)
+  .put(secureRoute, wines.update)
   .delete(secureRoute, wines.delete);
-// router.route('/wines/:winesId/comments/:commentId')
-//   .delete(comments.delete);            
+
+router.route('/wines/:winesId/comments/:commentId')
+  .delete(comments.delete);            
 
 router.route('/register')
   .get(registrations.new)
@@ -52,8 +53,8 @@ router.route('/login')
   .post(sessions.create);
 
 router.route('/logout')
-   .get(sessions.delete);
-    
+  .get(sessions.delete);
+
 router.route('/users/:id')
   .get(users.show);
 
