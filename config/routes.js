@@ -6,6 +6,7 @@ const registrations = require('../controllers/registrations');
 const wines = require('../controllers/wines');
 const users = require('../controllers/users');
 const comments = require('../controllers/comments');
+const search = require('../controllers/search');
 
 // securing routes - if no userid in the session, back to login
 function secureRoute(req, res, next) {
@@ -58,4 +59,6 @@ router.route('/logout')
 router.route('/users/:id')
   .get(users.show);
 
+router.route('/search/results')
+  .get(search.search);
 module.exports = router;
