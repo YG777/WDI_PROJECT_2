@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
-const statics = require('../controllers/statics');
+//const statics = require('../controllers/statics');
+const home = require('../controllers/home');
 const sessions = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
 const wines = require('../controllers/wines');
@@ -21,7 +22,7 @@ function secureRoute(req, res, next) {
 }
 
 router.route('/')
-  .get(statics.index);
+  .get(home.home);
 
 router.route('/wines')
   .get(wines.index)
@@ -61,4 +62,11 @@ router.route('/users/:id')
 
 router.route('/search/results')
   .get(search.search);
+
+// router.route('/search/list')
+//   .get(search.list);
+
+router.route('/search')
+  .get(search.searchForm);  
+
 module.exports = router;

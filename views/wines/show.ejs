@@ -1,44 +1,29 @@
 
-<%= wine %>
 
 <p>showejs vines</p>
-<h1>Wines Show</h1>
+<div class= "container">
  <% if (locals.isLoggedIn) { %>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-8">
       <div class="card">
         <div class="card-block">
-         
-        
-            <h4 class="card-title"><%= wine.product %></h4>
-          <
-          <p class="card-text"><%= wine.winery %></p>   
-          <p><%= wine.description %></p>
+            <div style="padding: 4px" ><img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" style="width:auto" alt="<%= wine.product %>"></div>
+            <h1 class="card-title"><%= wine.product %></h1>
+            <h4 class="card-text"><%= wine.winery %></h4>   
+            <p><%= wine.description %></p>
         </div>
-        
-        <form class="" action="/wines/<%= wine._id %>" method="post">
-        <a href="/wines/<%= wine.id %>/edit" class="btn btn-primary">Edit</a>
-         <input type="hidden" name="_method" value="delete">
-         <button class="btn btn-danger">Delete</button>   
-         </form>
          <h4>Comments</h4>
-
         <form action="/wines/<%= wine._id %>" method="post">
           <input type="text" name="body">
           <input type="submit" value="Post Comment">
         </form>
-
         <ul>
           <% wine.comments.forEach(comment => { %>
             <li>
-              <h5><a href="/users/<%= comment.user._id %>"><%= comment.user.username %></a></h5>
+              <h5><%= comment.user.username %></h5>
               <p><%= comment.body %></p>
-
               <% if (comment.user.id === locals.user.id || wine.createdBy.id === locals.user.id ) { %>
-                <form action="/wines/<%= wine._id %>/comments/<%= comment._id %>" method="post">
-                  <input type="hidden" name="_method" value="delete">
-                  <input class="btn btn-danger" type="submit" value="Delete Comment">
-                </form>
+                <form action="/wines/<%= wine._id %>/comments/<%= comment._id %>" method="post"></form>
               <% } %>
             </li>
           <% }) %>
@@ -59,6 +44,6 @@
       </div>
     </div>
  <% } %>
-          
+  </div>       
       
-   
+  

@@ -1,6 +1,6 @@
 var http = require('http');
 
-function searchApi(searchTerm) {
+function searchApi(searchTerm, callback) {
   var options = {
     host: 'services.wine.com',
     port: 80,
@@ -16,11 +16,15 @@ function searchApi(searchTerm) {
 
     res.on('end', function () {
       var response = JSON.parse(body);
-      var firstResult = response.Products.List[0];
-      return  convertObj(firstResult);
+      var wines = [];
+      for(var i = 0; i < response.Products.List.length; i++){
+        wines.push(convertObj(response.Products.List[i]));
+      }
+      callback(wines);
     });
+  }).end();
 
-  }).end();  
+  //return wine;
 }
 
 function convertObj(fullWine) {
@@ -34,14 +38,25 @@ function convertObj(fullWine) {
   wine.Vineyard = fullWine.Vineyard.Name;
   wine.Vintage = fullWine.Vintage;
   wine.Description = wine.Description;
+
   return wine;
 }
 
 function searchWine(req, res){
-  var model = searchApi('merlot');
-  res.render('search/results', {model});
+  var searchTerm = req.query.searchTerm;
+  function callback(results){
+    res.render('search/results', {
+      wines: results
+    });
+  }
+  searchApi(searchTerm, callback);
+}
+
+function searchForm(req, res){
+  res.render('search/form');
 }
 
 module.exports = {
+  searchForm: searchForm,
   search: searchWine
 };

@@ -1,27 +1,27 @@
-<% if (locals.isLoggedIn) { %>
-   <h1>Your Wine List</h1>
-    <a href="/wines/new" class="btn btn-primary">Add New</a>
-        <% } else { %>
-          <h1>Members favorites</h1>
-        <% } %>
 
 <p>indexejs wines</p>
- 
- <div class="row">
-  <% wines.forEach((wine) => { %>
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-img-top" style="background-image:url(<%= wine.images %>)" alt="<%= wine.product %>"></div>
-        <div class="card-block">
-          <a href="/wines/<%= wine.id %>">
-            <h4 class="card-title"><%= wine.product %></h4>
-          </a>
-          <p class="card-text"><%= wine.winery %></p>   
-        </div>
-      </div>
-    </div>
-<% }) %>
- </div> 
- 
 
-
+<div class="container">  
+<h1>Users favorites</h1>  
+        <div class="mainbox col-md-10 col-sm-8 col-sm-offset-2">                    
+          <div class="row" style="background-color:red">
+          
+              <% wines.forEach((wine) => { %>
+              <div class="col-sm-6 col-md-4" style="background-color:blue">
+                  <div class="thumbnail" style="padding: 0">
+                      <div style="padding: 4px" ><img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" style="width:auto" alt="<%= wine.product %>"></div>
+                      <div class="caption">
+                      <h4><a href="/wines/<%= wine.id %>"><h4 class="card-title"><%= wine.product %></a></h4>
+                        
+                     
+                      <p class="card-text"><%= wine.winery %></p>   
+                    </div>
+                      </div> 
+                 </div>
+              </div>
+            <% }) %>
+            </div>  
+            </div> 
+         </div>
+    
+  

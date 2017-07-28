@@ -1,2 +1,14 @@
 <h1> Search results</h1>
-<%= search %>
+
+<ul>
+    <% wines.forEach(function(wine){ %>
+        <li>
+            <strong><%= wine.Name %></strong>
+            <br/>
+            <form action="list/add" method="post">
+                <input type="hidden" name="wineId" value="<%= wine.Id %>" />
+                <button>Add to my list</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>

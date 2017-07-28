@@ -1,6 +1,14 @@
 const User = require('../models/user');
 const Wine = require('../models/wine');
 
+function usersIndex(req, res) { 
+  User
+    .find()
+    .exec()
+    .then((users) => res.render('user/show', {users}));
+}
+
+
 function usersShow(req, res) {
   User
     .findById(req.params.id)
@@ -18,5 +26,6 @@ function usersShow(req, res) {
 }
 
 module.exports = {
+  index: usersIndex,
   show: usersShow
 };

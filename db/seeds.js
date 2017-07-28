@@ -41,7 +41,7 @@ User
         description: 'Ruby red colour load and elegant, it is complex and fruity with hints of plum, cherry jam and tobacco. Full-bodied wine, soft and rich with an ending that gives notes of cocoa, coffee and vanilla.',
         comments: [{
           body: 'COOOOOOOL',
-          user: users[1]._id
+          user: users[2]._id
         }]
       },{
         images: 'https://cdn.majestic.co.uk/INTERSHOP/static/WFS/Majestic-uk-Site/-/Majestic/en_GB/p/01932_p.jpg',
@@ -50,10 +50,10 @@ User
         winetype: 'Red Wine',
         region: 'France, Burgundy',
         description: 'An upfront, easy to enjoy Batailley that is accessible now with ripe tannins and sweet red plum fruit. Balanced and well made with tannins that are ripe, supple and fine-grained.',
-        createdBy: users[1]._id,
+        createdBy: users[0]._id,
         comments: [{
           body: 'COOOOOOOL',
-          user: users[1]._id  
+          user: users[2]._id  
         }]
       },{
         images: [

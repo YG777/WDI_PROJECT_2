@@ -1,0 +1,27 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  background-color:#f5f5f1;
+  font-family: Helvetica,Arial,sans-serif;
+//   font-size: 14px;
+  text-align: center;
+}
+
+main {
+  padding: 1em;
+  margin: 1em auto;
+  background-color: #f5f5f1;
+
+  color:#221F1F;
+  border-radius:(5px);
+}
+
+h1 {
+    color:#ff666a;
+    font-size: 40x;
+    font-weight: 700;
+}
