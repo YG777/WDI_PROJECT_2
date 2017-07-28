@@ -13,7 +13,7 @@ function registrationsCreate(req, res) {
       // req.flash('info', `Thanks for registering, ${user.username}!`);
       console.log('info', `Thanks for registering, ${user.username}!`);
       req.session.userId = user._id;
-      res.redirect('/');
+      res.redirect('/wines');
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

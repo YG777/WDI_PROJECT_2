@@ -1,27 +1,22 @@
-
-<p>indexejs wines</p>
-
-<div class="container">  
+<div class="container-fluid" id="wines">  
 <h1>Users favorites</h1>  
-        <div class="mainbox col-md-10 col-sm-8 col-sm-offset-2">                    
-          <div class="row" style="background-color:red">
-          
-              <% wines.forEach((wine) => { %>
-              <div class="col-sm-6 col-md-4" style="background-color:blue">
-                  <div class="thumbnail" style="padding: 0">
-                      <div style="padding: 4px" ><img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" style="width:auto" alt="<%= wine.product %>"></div>
-                      <div class="caption">
-                      <h4><a href="/wines/<%= wine.id %>"><h4 class="card-title"><%= wine.product %></a></h4>
-                        
-                     
-                      <p class="card-text"><%= wine.winery %></p>   
-                    </div>
+                           
+    <div class="container-fluid">
+       <div class="row" id="#holdstuff"><% wines.forEach((wine) => { %>
+              <div class="card-deck">
+                    <div class="card" id="winecard">
+                      <img class ="card-img-top" src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" alt="<%= wine.product %>">
+                        <div class="card-block">  
+                            <a href="/wines/<%= wine.id %>">
+                            <h5 class="card-title"><%= wine.product %></h5></a>
+                              <p class="card-text"><%= wine.winery %></p> 
+                        </div>
                       </div> 
-                 </div>
-              </div>
-            <% }) %>
-            </div>  
-            </div> 
-         </div>
+                </div>
+                <% }) %>
+           </div>
+      </div>
+           
+</div>
     
   

@@ -1,0 +1,35 @@
+#home{
+    padding: 0;
+} 
+main {
+    height:100%;
+    width:100%;
+    margin: 0; 
+    padding:0 !important;
+
+}
+.block1 {
+    height:100%;
+    background-image: url('../images/background.jpg'); 
+    background-position: center center; 
+    background-size: cover;
+}
+
+header{
+    display: block;
+    text-align: center;
+}
+.homeh1, .homeh2 {
+    color: #f6f6f4;
+}
+
+.homeh1 {
+    padding-top:5%;
+    font-size: 4em;
+}
+
+.homeh2 {
+    font-size: 2em;
+    font-weight: 600;
+
+}

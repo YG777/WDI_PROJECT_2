@@ -1,12 +1,15 @@
 nav{
-background-color: #c2c2b2;
+background-color:#39392D;
 }
-.navbar-brand {
-    font-size: 26px;
+a.navbar-brand {
+    font-size: 28px;
     font-weight: bold;
+    padding-left: 4%;
 }
-.nav-item{
+
+a.nav-link {
  font-size: 18px;
- font-weight:700;
- color: #0bb238
+ font-weight:300;
+ color:#f5f5f1;
+
 }

@@ -1,0 +1,35 @@
+
+.row {
+    background-color:#c2c2b2;
+    border-radius: 15px;
+}
+.card {
+    width: 50%; text-align: left;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 25%;
+    border-radius: 15px;
+
+}
+h2 {
+    padding-top: 5%;
+ 
+}
+.textarea{
+    width: 150px;
+    
+}
+#comment {
+    width: 250px;
+}
+.usercomments {
+    text-align: left;
+    padding-left: 2px;
+    text-decoration: none;
+}
+
+li > h5 {
+    font-weight: 600;
+    font-style: italic;
+    color:#772725;
+}

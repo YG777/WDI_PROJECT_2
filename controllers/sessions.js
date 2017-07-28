@@ -14,7 +14,7 @@ function sessionCreate(req, res) {
       console.log('info', `Thanks for logging in, ${user.username}!`);
       req.session.userId = user._id;
 
-      return res.redirect('wines/index.ejs');
+      return res.redirect('/wines');
     });
 }
 
