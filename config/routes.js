@@ -8,6 +8,7 @@ const wines = require('../controllers/wines');
 const users = require('../controllers/users');
 const comments = require('../controllers/comments');
 const search = require('../controllers/search');
+const list = require('../controllers/list');
 
 // securing routes - if no userid in the session, back to login
 function secureRoute(req, res, next) {
@@ -24,24 +25,14 @@ function secureRoute(req, res, next) {
 router.route('/')
   .get(home.home);
 
-router.route('/wines')
-  .get(wines.index)
-  .post(secureRoute, wines.create);
+// router.route('/wines')
+//   .get(wines.index)
+//   .post(secureRoute, wines.create);
 
-router.route('/wines/new')
-  .get(secureRoute, wines.new);
 
 router.route('/wines/:id')
-  .get(wines.show)
-  .post(secureRoute, comments.create)
-  .put(secureRoute, wines.update)
-  .delete(secureRoute, wines.delete);
+  .get(wines.show);
 
-router.route('/wines/:id/edit')
-  .get(wines.edit)
-  .post(secureRoute, wines.create)
-  .put(secureRoute, wines.update)
-  .delete(secureRoute, wines.delete);
 
 router.route('/wines/:winesId/comments/:commentId')
   .delete(comments.delete);            
@@ -63,10 +54,14 @@ router.route('/users/:id')
 router.route('/search/results')
   .get(search.search);
 
-// router.route('/search/list')
-//   .get(search.list);
-
 router.route('/search')
   .get(search.searchForm);  
+
+router.route('/list')
+  .get(list.list)
+  .post(list.add);
+
+
+
 
 module.exports = router;
