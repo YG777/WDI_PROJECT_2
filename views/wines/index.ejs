@@ -5,11 +5,11 @@
        <div class="row" id="#holdstuff"><% wines.forEach((wine) => { %>
               <div class="card-deck">
                     <div class="card" id="winecard">
-                      <img class ="card-img-top" src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" alt="<%= wine.product %>">
+                      <img class ="card-img-top" src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" alt="<%= wine.name %>">
                         <div class="card-block">  
                             <a href="/wines/<%= wine.id %>">
-                            <h5 class="card-title"><%= wine.product %></h5></a>
-                              <p class="card-text"><%= wine.winery %></p> 
+                            <h5 class="card-title"><%= wine.name %></h5></a>
+                              <p class="card-text"><%= wine.vinyard %></p> 
                         </div>
                       </div> 
                 </div>

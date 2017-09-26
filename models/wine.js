@@ -7,25 +7,24 @@ const commentSchema = new mongoose.Schema({
 });
 
 const wineSchema = new mongoose.Schema({
-  images: { 
+  ImgLink: { 
     type: String 
   },
-  product: {
-    type: String,
-    required: true
-  },
-  winery: {
+  name: {
     type: String
   },
-  winetype: {
+  Vineyard: {
     type: String
   },
-  region: {
+  TypeOrColor: {
     type: String
   },
-  description: {
+  Country: {
     type: String
   },
+  // description: {
+  //   type: String
+  // },
   comments: [commentSchema],
 
   createdBy: {

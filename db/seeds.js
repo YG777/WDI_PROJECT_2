@@ -5,12 +5,12 @@ const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/wdi-project-2';
 mongoose.connect(dbURL);
 
 const User = require('../models/user');
-const Wine = require('../models/wine');
-const List = require('../models/list');
+// const Wine = require('../models/wine');
+// const List = require('../models/list');
 
-List.collection.drop();
 User.collection.drop();
-Wine.collection.drop();
+// List.collection.drop();
+// Wine.collection.drop();
 
 User
   .create([{
@@ -30,7 +30,6 @@ User
     passwordConfirmation: 'password'
   }])
 
-  
   .catch((err) => {
     console.log(err);
   })

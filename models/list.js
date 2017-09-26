@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const listSchema = new mongoose.Schema({
   wineId: {
-    type: Number
+    type: String
   },
   userId: { type: String}
 });

@@ -1,11 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
-const {
-  port,
-  dbURL,
-  secret
-} = require('./config/env');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
@@ -15,6 +10,11 @@ const session = require('express-session');
 // const flash = require('express-flash');
 const routes = require('./config/routes');
 const User = require('./models/user');
+const {
+  port,
+  dbURL,
+  secret
+} = require('./config/environment');
 const app = express();
 
 mongoose.connect(dbURL);

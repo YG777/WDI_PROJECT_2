@@ -4,9 +4,9 @@
    <p>resultsejs</p>
     <% wines.forEach(function(wine){ %>
         <li>
-            <strong><%= wine.Name %></strong>
+            <strong><%= wine.wineName %></strong>
             <br/>
-            <form action="/list" method="post">
+            <form action="/list/list" method="post">
                 <input type="hidden" name="wineId" value="<%= wine.Id %>" />
                 <button>Add to my list</button>
             </form>

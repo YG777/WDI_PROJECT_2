@@ -1,16 +1,14 @@
 const Api = require('../API/searchapi');
 const List = require('../models/list');
 
-
 function list(req, res) {
-
 
   List
     .find({
       userId: req.session.userId
     })
     .exec()
-    //list is passing teh list of data from the database
+    //list is passing the list of data from the database
     .then(list => {
       function render(wines) {
         if (wines.length === list.length) {
@@ -47,7 +45,6 @@ function add(req, res) {
       res.redirect('/list');
     });
 }
-
 
 module.exports = {
   list: list,

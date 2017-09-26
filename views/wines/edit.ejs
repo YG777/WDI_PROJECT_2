@@ -7,11 +7,11 @@
          <form method="PUT" action="/wines/<%= wine.id %>">
           <input type="hidden" name="_method" value="PUT">
          
-          <label for="product">Wine name</label>
-          <input type="text" name="product" id="product" placeholder="wine name" class="form-control" value="<%= wine.product %>">
+          <label for="name">Wine name</label>
+          <input type="text" name="name" id="name" placeholder="wine name" class="form-control" value="<%= wine.name %>">
 
-          <label for="winery">Winery</label>
-          <input type="text" name="winery" id="winery" class="form-control" value="<%= wine.winery %>">
+          <label for="vinyard">vinyard</label>
+          <input type="text" name="vinyard" id="vinyard" class="form-control" value="<%= wine.vinyard %>">
 
           <label for="description">Tasting Notes</label>
           <textarea name="description" id="description" placeholder="tasting notes" class="form-control"><%= wine.description %></textarea> 

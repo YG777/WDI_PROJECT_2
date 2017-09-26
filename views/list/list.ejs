@@ -7,11 +7,12 @@
        <div class="row" id="#holdstuff"><% wines.forEach(function(wine){ %>
               <div class="card-deck">
                     <div class="card" id="winecard">
-                      <img class ="card-img-top" src="<%= wine.ImgLink %>" alt="<%= wine.product %>">
+                      <img class ="card-img-top" src="<%= wine.ImgLink %>" alt="<%= wine.name %>">
                         <div class="card-block">  
-                            <a href="# <%= wine.Name %>">
-                            <h5 class="card-title"><%= wine.Name %></h5></a>
-                              <p class="card-text"><%= wine.Vinyard %></p> 
+                            <a href="# <%= wine.name %>">
+                            <h5 class="card-title"><%= wine.name %></h5></a>
+                              <p class="card-text"><%= wine.vinyard %></p> 
+                              <p class="card-text"><%= wine.vintage %></p> 
                         </div>
                       </div> 
                 </div>

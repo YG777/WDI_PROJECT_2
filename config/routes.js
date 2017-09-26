@@ -26,9 +26,19 @@ router.route('/')
   .get(home.home);
 
 // router.route('/wines')
-//   .get(wines.index)
+//   .get(wines.index);
 //   .post(secureRoute, wines.create);
 
+
+router.route('/search')
+  .get(search.searchForm);  
+
+router.route('/search/results')
+  .get(search.search);
+  
+router.route('/list')
+  .get(list.list)
+  .post(list.add);
 
 router.route('/wines/:id')
   .get(wines.show);
@@ -50,18 +60,5 @@ router.route('/logout')
 
 router.route('/users/:id')
   .get(users.show);
-
-router.route('/search/results')
-  .get(search.search);
-
-router.route('/search')
-  .get(search.searchForm);  
-
-router.route('/list')
-  .get(list.list)
-  .post(list.add);
-
-
-
 
 module.exports = router;
