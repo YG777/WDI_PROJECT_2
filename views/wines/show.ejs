@@ -6,9 +6,14 @@
      <div class="card">
          <div class="card-block">
              <div><img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" style="width:auto" alt="<%= wine.name %>"></div>
-                   <h2 class="card-title"><%= wine.name %></h2>
-                   <h4 class="card-text"><%= wine.vinyard %></h4>   
-                  <p><%= wine.vintage %></p>
+                   <h2 class="card-title"><%= wine.Name %></h2>
+                   <h4 class="card-text"><%= wine.Vinyard %></h4>   
+                  <p><%= wine.Vintage %></p>
+                  <p><%= wine.Vineyard %></p>
+                   <p><%= wine.Vintage %></p>
+                    <p><%= wine.TypeOrColor %></p>
+                     <p><%= wine.Country %></p>
+                  
                    
                    <h4>Comments</h4>
                    <form action=" " method="post">
@@ -30,22 +35,7 @@
                  </div>
            </div>
        </div>
-   </div>
- 
- 
-     <% } else { %>
-        <div class="row">
-              <div class="card">
-                 <div class="card-block">
-                    <div><img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" style="width:auto" alt="<%= wine.name %>"></div>
-                         <h2 class="card-title"><%= wine.name %></h2>
-                         <h4 class="card-text"><%= wine.vinyard %></h4>   
-                         <p><%= wine.description %></p>
-                </div>
-            </div>
-      </div>
-      <% } %>
- </div>       
-  </div> 
+   </div>    
+</div> 
  
 

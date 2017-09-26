@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
   username: { type: String },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  wine: [{type: mongoose.Schema.ObjectId, ref: 'Wine'}]
+  wine: [{type: mongoose.Schema.ObjectId, ref: 'Wine'}],
+  list: [{type: mongoose.Schema.ObjectId, ref: 'List'}]
   
 });
 

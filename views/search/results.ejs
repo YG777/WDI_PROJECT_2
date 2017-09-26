@@ -1,15 +1,31 @@
-<h1> Search results</h1>
 
-<ul>
-   <p>resultsejs</p>
-    <% wines.forEach(function(wine){ %>
-        <li>
-            <strong><%= wine.Name %></strong>
-            <br/>
-            <form action="/list" method="post">
-                <input type="hidden" name="wineId" value="<%= wine.Id %>" />
-                <button>Add to my list</button>
-            </form>
-        </li>
-    <% }) %>
-</ul>
+
+
+
+
+
+<div class="container-fluid" id="wines">  
+<h1>Search Results</h1>  
+                           
+    <div class="container-fluid">
+       <div class="row" id="#holdstuff"> <% wines.forEach(function(wine){ %>
+              <div class="card-deck">
+                    <div class="card" id="winecard">
+                      <img class ="card-img-top" style="background-image:url(<%= wine.ImgLink %>)">
+                        <div class="card-block">  
+                            <a href="/wines/<%= wine.Id %>">
+                            <h5 class="card-title"><%= wine.Name %></h5></a>
+                              <p class="card-text"><%= wine.Vintage %></p> 
+                              <form action="/list" method="post">
+                                 <input type="hidden" name="wineId" value="<%= wine.Id %>"/>
+                                <button>Add to my list</button>
+                            </form>
+                        </div>
+                      </div> 
+                </div>
+                <% }) %>
+           </div>
+      </div> 
+</div>
+    
+  

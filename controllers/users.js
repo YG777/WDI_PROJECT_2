@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const Wine = require('../models/wine');
+const Wine = require('../models/list');
 
 function usersIndex(req, res) { 
   User
@@ -12,15 +12,15 @@ function usersIndex(req, res) {
 function usersShow(req, res) {
   User
     .findById(req.params.id)
-    .populate('wine')
+    .populate('list')
     .exec()
     .then(user => {
       Wine
         .find({ createdBy: user._id })
-        .populate('wine')
+        .populate('list')
         .exec()
-        .then(wines => {
-          res.render('users/show', { user, wines });
+        .then(list => {
+          res.render('users/show', { user, list });
         });
     });
 }

@@ -7,21 +7,13 @@ const commentSchema = new mongoose.Schema({
 });
 
 const wineSchema = new mongoose.Schema({
-  ImgLink: { 
-    type: String 
-  },
-  name: {
-    type: String
-  },
-  Vineyard: {
-    type: String
-  },
-  TypeOrColor: {
-    type: String
-  },
-  Country: {
-    type: String
-  },
+  wineId: {type: String},
+  ImgLink: { type: String },
+  Name: {type: String},
+  Vineyard: {type: String},
+  Vintage: {type: String}, 
+  TypeOrColor: {type: String},
+  Country: {type: String},
   // description: {
   //   type: String
   // },
@@ -33,4 +25,4 @@ const wineSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Wine', wineSchema);
+module.exports = mongoose.model('Wine', wineSchema);                                     

@@ -18,6 +18,7 @@ function listIndex(req, res) {
         }
       }
       var wines = [];
+      console.log(wines + 11);
       list.forEach(function (listItem) {
         //get the wine from the api for the list item - wineId
         //convert it
@@ -28,8 +29,6 @@ function listIndex(req, res) {
           render(wines);
         });
       }, this);
-
-
     });
 }
 
@@ -39,11 +38,14 @@ function addToList(req, res) {
     wineId: req.body.wineId,
     userId: req.session.userId
   };
+console.log(listItem + 1);
 
-  List.create(listItem)
+  List
+    .create(listItem)
     .then(listItem => {
       res.redirect('/list');
     });
+    console.log(listItem + 2);
 }
 
 module.exports = {
