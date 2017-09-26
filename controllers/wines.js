@@ -1,9 +1,12 @@
 const Api = require('../API/searchapi');
-const Wine = require('../models/wine');
 
+function winesShow(req, res){
+  var itemId = req.params.id;
+  function callback(getItem){
+    res.render('wines/show', { wine: getItem});
+  }
 
-function winesShow(req, res) {
-  res.render('/show');
+  Api.getItem(itemId, callback);
 }
 
 module.exports={

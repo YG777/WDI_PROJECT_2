@@ -1,41 +1,45 @@
-<h1>wineitem</h1> 
+<h1>wineitem</h1>
 <div id="showWine">
- <div class= "container">
- <% if (locals.isLoggedIn) { %>
-  <div class="row">
-     <div class="card">
-         <div class="card-block">
-             <div><img src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/wine_bottle.png" style="width:auto" alt="<%= wine.name %>"></div>
-                   <h2 class="card-title"><%= wine.Name %></h2>
-                   <h4 class="card-text"><%= wine.Vinyard %></h4>   
-                  <p><%= wine.Vintage %></p>
-                  <p><%= wine.Vineyard %></p>
-                   <p><%= wine.Vintage %></p>
-                    <p><%= wine.TypeOrColor %></p>
-                     <p><%= wine.Country %></p>
-                  
-                   
-                   <h4>Comments</h4>
-                   <form action=" " method="post">
-                       <input type="text" name="body" class="textarea" id="comment">
-                      <input type="submit" value="Post Comment">
-                   </form>
-                  <div>
-                   <ul class="usercomments">
-                         <% wine.comments.forEach(comment => { %>
-                            <li class="">
-                               <h5><%= comment.user.username %></h5>
-                               <p><%= comment.body %></p>
-                               <% if (comment.user.id === locals.user.id || wine.createdBy.id === locals.user.id ) { %>
-                                 <form action="/wines/<%= wine._id %>/comments/<%= comment._id %>" method="post"></form>
-                               <% } %>
-                             </li>
-                         <% }) %>
-                   </ul>
-                 </div>
-           </div>
-       </div>
-   </div>    
-</div> 
- 
+    <div class="container">
+            <div class="row">
+                <div class="card">
+                    <div class="card-block">
+                        <div><img src="<%= wine.Photo %>"
+                                style="width:auto" alt="<%= wine.Name %>" /></div>
+                        <h2 class="card-title">
+                            <%= wine.Name %>
+                        </h2>
+                        <h4 class="card-text">
+                            <%= wine.Vinyard %>
+                        </h4>
+                        <p>
+                            <%= wine.Vintage %>
+                        </p>
+                        <p>
+                            <%= wine.Vineyard %>
+                        </p>
+                        <p>
+                            <%= wine.Vintage %>
+                        </p>
+                        <p>
+                            <%= wine.TypeOrColor %>
+                        </p>
+                        <p>
+                            <%= wine.Country %>
+                        </p>
 
+
+                        <h4>Comments</h4>
+                        <form action=" " method="post">
+                            <input type="text" name="body" class="textarea" id="comment">
+                            <input type="submit" value="Post Comment">
+                        </form>
+                        <div>
+                            <ul class="usercomments">
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>

@@ -10,7 +10,6 @@ function searchWine(req, res){
     res.render('search/results', {
       wines: searchResults
     });
-    console.log(searchResults);
   }
   //call API and render view when done
   Api.searchApi(searchTerm, callback);

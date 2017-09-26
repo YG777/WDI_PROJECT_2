@@ -10,6 +10,7 @@ const comments = require('../controllers/comments');
 const search = require('../controllers/search');
 const list = require('../controllers/list');
 
+
 // securing routes - if no userid in the session, back to login
 function secureRoute(req, res, next) {
   if (!req.session.userId) {

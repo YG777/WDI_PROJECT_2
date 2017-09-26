@@ -1,4 +1,4 @@
-const Wine = require('../models/wine');
+
 
 function commentsCreate(req, res) {
   Wine

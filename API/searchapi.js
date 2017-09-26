@@ -1,10 +1,11 @@
 var http = require('http');
 
 function getItem(itemId, callback) {
+  console.log(itemId);
   var options = {
     host: 'api.snooth.com',
     port: 80,
-    path: '/wines/?akey=yi5b2jcvhpfjifiqp25t7u7fbisu3k2f929ic0f5aq6y83n7&food=1&photos=1&id=(' + itemId + ')',
+    path: '/wine/?akey=yi5b2jcvhpfjifiqp25t7u7fbisu3k2f929ic0f5aq6y83n7&&photos=1&id=' + itemId,
     method: 'GET'
   };
 
@@ -18,11 +19,30 @@ function getItem(itemId, callback) {
     res.on('end', function () {
       //convert data to json object
       var jsonResponse = JSON.parse(body);
-      var wine = convertObj(jsonResponse.Wines);
+      console.log(jsonResponse);
+      var wine = convertObj(jsonResponse.wines[0]);
       callback(wine);
+      console.log(wine);
     });
   }).end();
+  // }
+
+  // res.on('end', function () {
+  //   var jsonResponse = JSON.parse(body);
+  //   var wine = [];
+  //   for (var i = 0; i < jsonResponse.wines.length; i++) {
+  //     wine.push(convertObj(jsonResponse.wines[i]));
+  //   }
+  //   console.log(wine);
+  //   console.log("hello");
+  // })
+  //   .end();
+  // });
 }
+
+
+
+
 
 function searchApi(searchTerm, callback) {
   var options = {
@@ -64,14 +84,16 @@ function convertObj(jsonApiWine) {
   wine.Vineyard = jsonApiWine.winery;
   wine.VineyardId = jsonApiWine.winery_id;
   wine.Grape = jsonApiWine.varietal;
-  // wine.price = jsonApiWine.Price;
   wine.Vintage = jsonApiWine.vintage;
-  wine.TypeOrColor = jsonApiWine.type;
-  // wine.snoothlink = jsonApiWine.Link;
+  if(typeof(jsonApiWine.color) !== 'undefined'){
+    wine.TypeOrColor =  jsonApiWine.color;
+  }else{
+    wine.TypeOrColor = jsonApiWine.type;
+  }
   wine.ImgLink = jsonApiWine.image;
-
-  // wine.Description = jsonApiWine.Description;
-
+  if(typeof(jsonApiWine.photos) !== 'undefined'){
+    wine.Photo = jsonApiWine.photos[0].full;
+  }
   return wine;
 }
 

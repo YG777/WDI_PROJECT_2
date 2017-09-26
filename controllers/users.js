@@ -13,16 +13,16 @@ function usersShow(req, res) {
   User
     .findById(req.params.id)
     .populate('list')
-    .exec()
-    .then(user => {
-      Wine
-        .find({ createdBy: user._id })
-        .populate('list')
-        .exec()
-        .then(list => {
-          res.render('users/show', { user, list });
-        });
-    });
+    .exec();
+  // .then(user => {
+  //   Wine
+  //     .find({ createdBy: user._id })
+  //     .populate('list')
+  //     .exec()
+  //     .then(list => {
+  //       res.render('users/show', { user, list });
+  //     });
+  // });
 }
 
 module.exports = {
