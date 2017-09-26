@@ -1,7 +1,7 @@
 const Api = require('../API/searchapi');
 const List = require('../models/list');
 
-function list(req, res) {
+function listIndex(req, res) {
 
   List
     .find({
@@ -12,7 +12,7 @@ function list(req, res) {
     .then(list => {
       function render(wines) {
         if (wines.length === list.length) {
-          res.render('list/list', {
+          res.render('/list', {
             wines
           });
         }
@@ -33,7 +33,7 @@ function list(req, res) {
     });
 }
 
-function add(req, res) {
+function addToList(req, res) {
   //get wine id from form submitted value
   var listItem = {
     wineId: req.body.wineId,
@@ -47,8 +47,8 @@ function add(req, res) {
 }
 
 module.exports = {
-  list: list,
-  add: add
+  index: listIndex,
+  add: addToList
 };
 
 //make changes to the view to change the data

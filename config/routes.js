@@ -25,11 +25,6 @@ function secureRoute(req, res, next) {
 router.route('/')
   .get(home.home);
 
-// router.route('/wines')
-//   .get(wines.index);
-//   .post(secureRoute, wines.create);
-
-
 router.route('/search')
   .get(search.searchForm);  
 
@@ -37,7 +32,7 @@ router.route('/search/results')
   .get(search.search);
   
 router.route('/list')
-  .get(list.list)
+  .get(list.index)
   .post(list.add);
 
 router.route('/wines/:id')
