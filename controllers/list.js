@@ -1,13 +1,14 @@
 const Api = require('../API/searchapi');
 const List = require('../models/list');
 
-function listIndex(req, res) {
+function list(req, res) {
 
   List
     .find({
       userId: req.session.userId
     })
     .exec()
+    
     //list is passing the list of data from the database
     .then(list => {
       function render(wines) {
@@ -15,10 +16,10 @@ function listIndex(req, res) {
           res.render('/list', {
             wines
           });
-        }
+        }  
       }
       var wines = [];
-      console.log(wines + 11);
+     
       list.forEach(function (listItem) {
         //get the wine from the api for the list item - wineId
         //convert it
@@ -38,18 +39,19 @@ function addToList(req, res) {
     wineId: req.body.wineId,
     userId: req.session.userId
   };
-console.log(listItem + 1);
+  // console.log(listItem);
+  // console.log("addtolist");
 
   List
     .create(listItem)
     .then(listItem => {
       res.redirect('/list');
     });
-    console.log(listItem + 2);
+  console.log(listItem);
 }
 
 module.exports = {
-  index: listIndex,
+  list: list,
   add: addToList
 };
 

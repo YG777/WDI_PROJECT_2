@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-//const statics = require('../controllers/statics');
+// const statics = require('../controllers/statics');
 const home = require('../controllers/home');
 const sessions = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
@@ -33,8 +33,8 @@ router.route('/search/results')
   .get(search.search);
   
 router.route('/list')
-  .get(list.index)
-  .post(list.add);
+  .get(list.list)
+  .post(secureRoute, list.add);
 
 router.route('/wines/:id')
   .get(wines.show);

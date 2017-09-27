@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <div class="container-fluid" id="wines">  
 <h1>Search Results</h1>  
                            
@@ -15,6 +9,7 @@
                         <div class="card-block">  
                             <a href="/wines/<%= wine.Id %>">
                             <h5 class="card-title"><%= wine.Name %></h5></a>
+                             <p class="card-text"><%= wine.Vineyard %></p> 
                               <p class="card-text"><%= wine.Vintage %></p> 
                               <form action="/list" method="post">
                                  <input type="hidden" name="wineId" value="<%= wine.Id %>"/>
