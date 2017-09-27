@@ -2,7 +2,7 @@ const Api = require('../API/searchapi');
 const List = require('../models/list');
 
 //LIST INDEX - ALL WINES
-function listShow(req, res) {
+function listIndex(req, res) {
 
   List
     .find({
@@ -53,7 +53,7 @@ function listItemCreate(req, res) {
 }
 
 module.exports = {
-  show: listShow,
+  index: listIndex,
   create: listItemCreate
 };
 
