@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   wine: [{type: mongoose.Schema.ObjectId, ref: 'Wine'}],
   list: [{type: mongoose.Schema.ObjectId, ref: 'List'}]
-  
 });
 
 userSchema.pre('save', function hashPassword(next) {
@@ -17,8 +16,7 @@ userSchema.pre('save', function hashPassword(next) {
   next();
 });
 
-userSchema
-  .virtual('passwordConfirmation')
+userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation;
   });
