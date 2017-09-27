@@ -1,4 +1,23 @@
-<div class="container-fluid" id="wines">
-  <h1>My Wine List</h1>
 
-</div>
+
+<div class="container-fluid" id="wines">  
+ <h1>My Wine List</h1>  
+                           
+    <div class="container-fluid">
+      <div class="row" id="#holdstuff"><% wines.forEach(function(wine){ %>
+              <div class="card-deck">
+                    <div class="card" id="winecard">
+                     <img class ="card-img-top" src="<%= wine.ImgLink %>" alt="<%= wine.Name %>">
+                       <div class="card-block">  
+                            <a href="/wines/<%= wine.Id %>">
+                            <h5 class="card-title"><%= wine.Name %></h5></a>
+                              <p class="card-text"><%= wine.Vineyard %></p> 
+                              <p class="card-text"><%= wine.Vintage %></p> 
+                         </div>
+                       </div> 
+                 </div>
+                 <% }) %>
+            </div>
+       </div>
+            
+ -</div>
