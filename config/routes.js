@@ -33,8 +33,8 @@ router.route('/search/results')
   .get(search.search);
   
 router.route('/list')
-  .get(list.list)
-  .post(secureRoute, list.add);
+  .get(list.show)
+  .post(list.create);
 
 router.route('/wines/:id')
   .get(wines.show);
