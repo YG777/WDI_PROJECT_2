@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/wdi-project-2';
+const dbURL = process.env.MONGODB_URI || 'mongodb://localhost:27017/wdi-project-2';
 mongoose.connect(dbURL);
 
 const User = require('../models/user');
@@ -28,7 +28,9 @@ User
     password: 'password',
     passwordConfirmation: 'password'
   }])
-
+  .then((users) => {
+    console.log(`${users.length} users created!`);
+  })
   .catch((err) => {
     console.log(err);
   })
