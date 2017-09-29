@@ -41,20 +41,33 @@ function listItemCreate(req, res) {
     wineId: req.body.wineId,
     userId: req.session.userId
   };
-  // console.log(listItem);
-  // console.log("addtolist");
 
   List
     .create(listItem)
-    .then(listItem => {
+    .then(() => {
       res.redirect('list');
     });
-  console.log(listItem);
 }
+
+function listItemDelete(req, res) {
+  console.log(req.session.userId);
+  var listItem = {
+    wineId: req.body.wineId,
+    userId: req.session.userId};
+  console.log(listItem);
+  List
+    .findOneAndRemove(req.body.listItem)
+    .then(() => {
+      res.redirect('list');
+    });   
+}
+
+
 
 module.exports = {
   index: listIndex,
-  create: listItemCreate
+  create: listItemCreate,
+  delete: listItemDelete
 };
 
 //make changes to the view to change the data

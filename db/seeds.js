@@ -5,10 +5,10 @@ const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/wdi-project-2';
 mongoose.connect(dbURL);
 
 const User = require('../models/user');
-// const List = require('../models/list');
+const List = require('../models/list');
 
 User.collection.drop();
-// List.collection.drop();
+List.collection.drop();
 
 
 User

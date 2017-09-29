@@ -6,7 +6,7 @@ const sessions = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
 const wines = require('../controllers/wines');
 const users = require('../controllers/users');
-const comments = require('../controllers/comments');
+//const comments = require('../controllers/comments');
 const search = require('../controllers/search');
 const list = require('../controllers/list');
 
@@ -34,14 +34,15 @@ router.route('/search/results')
   
 router.route('/list')
   .get(list.index)
-  .post(list.create);
+  .post(list.create)
+  .delete(list.delete);
+
 
 router.route('/wines/:id')
   .get(wines.show);
 
-
-router.route('/wines/:winesId/comments/:commentId')
-  .delete(comments.delete);            
+// router.route('/wines/:winesId/comments/:commentId')
+//   .delete(comments.delete);            
 
 router.route('/register')
   .get(registrations.new)
