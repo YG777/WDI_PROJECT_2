@@ -13,7 +13,7 @@ function sessionCreate(req, res) {
       }
       console.log('info', `Thanks for logging in, ${user.username}!`);
       req.session.userId = user._id;
-
+      req.session.username = user.username;
       return res.redirect('/');
     });
 }

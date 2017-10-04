@@ -5,7 +5,8 @@ function commentCreate(req, res) {
   var comment = {
     wineId: req.body.wineId,
     userId: req.session.userId,
-    comment: req.body.comment
+    comment: req.body.comment,
+    username: req.session.username
   };
 
   Comment
@@ -15,7 +16,7 @@ function commentCreate(req, res) {
     });
 }
 
+
 module.exports = {
-  // index: commentsAll,
   create: commentCreate
 };

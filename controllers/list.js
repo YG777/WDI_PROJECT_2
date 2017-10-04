@@ -36,8 +36,6 @@ function listIndex(req, res) {
         });
       }, this);
     });
-
-
 }
 
 function listItemCreate(req, res) {
@@ -67,7 +65,6 @@ function listItemDelete(req, res) {
       res.redirect('list');
     });
 }
-
 
 
 module.exports = {
