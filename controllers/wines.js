@@ -18,8 +18,3 @@ function winesShow(req, res){
 module.exports={
   show: winesShow
 };
-
-
-// var listItem = {
-//   wineId: req.body.wineId,
-//   userId: req.session.userId

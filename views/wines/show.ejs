@@ -28,28 +28,25 @@
                     </p>
 
                     <h3>Comments</h3>
-                    <ul>
-                        <li>
-                            <h5>
-                                <a> comment by
-                                    </a>
-                            </h5>
-                            <p>
-                                comment body
-                            </p>
+                    <% comments.forEach(function(comment){ %>
+                    <div class="row">
+                      
+                            <div class="comment-box">
+                                <%= comment.comment %>
+                            </div>
+                          
+                    </div>
 
-                            <div><%= comments %></div>
+                    <% }) %>
 
-                            <form action="/comments/" method="post">
-                                <input type="text" name="comment" />
+                    <form action="/comments/" method="post">
+                        <input type="text" name="comment" />
 
-                                <input type="hidden" name="wineId" value="<%= wine.Id %>"/>
-                                <button>Add Comment</button>
-                            </form>
+                        <input type="hidden" name="wineId" value="<%= wine.Id %>" />
+                        <button>Add Comment</button>
+                    </form>
 
-                        </li>
 
-                    </ul>
                 </div>
             </div>
         </div>
