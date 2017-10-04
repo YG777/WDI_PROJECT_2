@@ -1,8 +1,15 @@
 const Api = require('../API/searchapi');
+const Comment = require('../models/comment');
+
 function winesShow(req, res){
   var itemId = req.params.id;
   function callback(getItem){
-    res.render('wines/show', { wine: getItem});
+    Comment
+      .find({wineId: itemId})
+      .exec()
+      .then(comments => {
+        return res.render('wines/show', { wine: getItem, comments});      
+      });
   }
 
   Api.getItem(itemId, callback);

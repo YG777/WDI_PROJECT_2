@@ -18,12 +18,15 @@ function listIndex(req, res) {
           res.render('list', {
             wines
           });
+          console.log(list);
+        } else if (list === 0) {
+          res.render('list');
         }
       }
       //STORE WINE ID-s IN VAR WINES
       var wines = [];
+      // console.log(list);
 
-      //get the wine from the api for the list item - wineId
       list.forEach(function (listItem) {
         //convert it -> done in the api?
         //pass the array to render function
@@ -33,6 +36,8 @@ function listIndex(req, res) {
         });
       }, this);
     });
+
+
 }
 
 function listItemCreate(req, res) {
@@ -53,13 +58,14 @@ function listItemDelete(req, res) {
   console.log(req.session.userId);
   var listItem = {
     wineId: req.body.wineId,
-    userId: req.session.userId};
+    userId: req.session.userId
+  };
   console.log(listItem);
   List
     .findOneAndRemove(req.body.listItem)
     .then(() => {
       res.redirect('list');
-    });   
+    });
 }
 
 
@@ -69,4 +75,3 @@ module.exports = {
   create: listItemCreate,
   delete: listItemDelete
 };
-

@@ -1,16 +1,19 @@
+const Comment = require('../models/comment');
+
 function commentCreate(req, res) {
   const wineId = req.body.wineId;
-  const userId = req.session.userId;
-  const newComment = req.body.comment;
-  console.log(wineId);
-  console.log(userId);
-  console.log(newComment);
+  var comment = {
+    wineId: req.body.wineId,
+    userId: req.session.userId,
+    comment: req.body.comment
+  };
 
-  res.redirect(`/wines/${wineId}`);
+  Comment
+    .create(comment)
+    .then(() => {
+      res.redirect(`/wines/${wineId}`);
+    });
 }
-
-
-
 
 module.exports = {
   // index: commentsAll,
