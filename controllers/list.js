@@ -13,6 +13,10 @@ function listIndex(req, res) {
     //list is passing the list of data from the DATABASE -> USER with wine id
 
     .then(list => {
+      if(list.length === 0){
+        res.render('list', { wines: []});
+      }
+
       function render(wines) {
         if (wines.length === list.length) {
           res.render('list', {
@@ -25,12 +29,13 @@ function listIndex(req, res) {
       }
       //STORE WINE ID-s IN VAR WINES
       var wines = [];
-      // console.log(list);
-
+ 
       list.forEach(function (listItem) {
         //convert it -> done in the api?
         //pass the array to render function
         Api.getItem(listItem.wineId, function (wine) {
+          // console.log(listItem);
+          wine.listItemId = listItem._id;
           wines.push(wine);
           render(wines);
         });
@@ -53,16 +58,12 @@ function listItemCreate(req, res) {
 }
 
 function listItemDelete(req, res) {
-  console.log(req.session.userId);
-  var listItem = {
-    wineId: req.body.wineId,
-    userId: req.session.userId
-  };
-  console.log(listItem);
   List
-    .findOneAndRemove(req.body.listItem)
+    .findByIdAndRemove(req.body.listItemId, function (err) {
+      if (err) throw err;
+    })
     .then(() => {
-      res.redirect('list');
+      res.redirect('/list');
     });
 }
 
