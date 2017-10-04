@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const listSchema = new mongoose.Schema({
-  wineId: { type: String },
-  userId: { type: String}
+  userId: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  wineId: { type: String }
 });
 
 module.exports = mongoose.model('List', listSchema);

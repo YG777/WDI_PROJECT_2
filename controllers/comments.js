@@ -1,30 +1,18 @@
+function commentCreate(req, res) {
+  const wineId = req.body.wineId;
+  const userId = req.session.userId;
+  const newComment = req.body.comment;
+  console.log(wineId);
+  console.log(userId);
+  console.log(newComment);
+
+  res.redirect(`/wines/${wineId}`);
+}
 
 
-// function commentsCreate(req, res) {
-//   Wine
-//     .findById(req.params.id)
-//     .exec()
-//     .then(wine => {
-//       req.body.user = req.user._id;
-//       wine.comments.push(req.body);
-//       wine.save();
-//       res.redirect(`/wines/${wine._id}`);
-//     });
-// }
 
-// function commentsDelete(req, res) {
-//   Wine
-//     .findById(req.params.wineId)
-//     .exec()
-//     .then(wine => {
-//       const comment = wine.comments.id(req.params.commentId);
-//       comment.remove();
-//       wine.save();
-//       res.redirect(`/wines/${wine._id}`);
-//     });
-// }
 
-// module.exports = {
-//   create: commentsCreate,
-//   delete: commentsDelete
-// };
+module.exports = {
+  // index: commentsAll,
+  create: commentCreate
+};

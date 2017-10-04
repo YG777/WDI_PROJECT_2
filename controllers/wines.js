@@ -1,5 +1,4 @@
 const Api = require('../API/searchapi');
-
 function winesShow(req, res){
   var itemId = req.params.id;
   function callback(getItem){
@@ -12,3 +11,8 @@ function winesShow(req, res){
 module.exports={
   show: winesShow
 };
+
+
+// var listItem = {
+//   wineId: req.body.wineId,
+//   userId: req.session.userId

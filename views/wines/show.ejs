@@ -1,41 +1,54 @@
 <h1>Search Item</h1>
 <div id="showWine">
     <div class="container">
-            <div class="row">
-                <div class="card">
-                    <div class="card-block">
-                        <div><img src="<%= wine.Photo %>"
-                                style="width:auto" alt="<%= wine.Name %>" /></div>
-                        <h2 class="card-title">
-                            <%= wine.Name %>
-                        </h2>
-                        <h4 class="card-text">
-                            <%= wine.Vinyard %>
-                        </h4>
-                        <p>
-                            <%= wine.Vintage %>
-                        </p>
-                        <p>
-                            <%= wine.Vineyard %>
-                        </p>
-                        <p>
-                            <%= wine.Vintage %>
-                        </p>
-                        <p>
-                            <%= wine.TypeOrColor %>
-                        </p>
-                        <p>
-                            <%= wine.Country %>
-                        </p>
+        <div class="row">
+            <div class="card">
+                <div class="card-block">
+                    <div><img src="<%= wine.Photo %>" style="width:auto" alt="<%= wine.Name %>" /></div>
+                    <h2 class="card-title">
+                        <%= wine.Name %>
+                    </h2>
+                    <h4 class="card-text">
+                        <%= wine.Vinyard %>
+                    </h4>
+                    <p>
+                        <%= wine.Vintage %>
+                    </p>
+                    <p>
+                        <%= wine.Vineyard %>
+                    </p>
+                    <p>
+                        <%= wine.Vintage %>
+                    </p>
+                    <p>
+                        <%= wine.TypeOrColor %>
+                    </p>
+                    <p>
+                        <%= wine.Country %>
+                    </p>
 
+                    <h3>Comments</h3>
+                    <ul>
+                        <li>
+                            <h5>
+                                <a> comment by
+                                    </a>
+                            </h5>
+                            <p>
+                                comment body
+                            </p>
 
-                        <h4>Comments</h4>
-                        <div>
-                            <ul class="usercomments">
-                               
-                            </ul>
-                        </div>
-                    </div>
+                            <form action="/comments/" method="post">
+                                <input type="text" name="comment" />
+
+                                <input type="hidden" name="wineId" value="<%= wine.Id %>"/>
+                                <button>Add Comment</button>
+                            </form>
+
+                        </li>
+
+                    </ul>
                 </div>
             </div>
+        </div>
     </div>

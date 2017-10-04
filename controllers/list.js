@@ -70,6 +70,3 @@ module.exports = {
   delete: listItemDelete
 };
 
-//make changes to the view to change the data
-//postman
-//search controller example how to make it working

@@ -57,7 +57,7 @@ app.use((req, res, next) => {
           res.redirect('/');
         });
       }
-
+    
       req.session.userId = user._id;
       req.user = user;                  
       res.locals.user = user;
