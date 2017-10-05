@@ -41,7 +41,8 @@ router.route('/wines/:id')
   .get(wines.show);
 
 router.route('/comments')
-  .post(comments.create);
+  .post(comments.create)
+  .delete(comments.delete);
 
 router.route('/register')
   .get(registrations.new)

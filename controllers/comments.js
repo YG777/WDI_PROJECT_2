@@ -14,9 +14,34 @@ function commentCreate(req, res) {
     .then(() => {
       res.redirect(`/wines/${wineId}`);
     });
+  // console.log(comment); 
+  // { wineId: 'cantina-di-soave-rosato-veneto',
+  // userId: 59d48d44933a8b08c97d55bb,
+  // comment: 'new commnet',
+  // username: 'kat' }   
+
 }
 
+// function commentDelete(req, res) {
+//   var wineId = req.body.wineId;
+
+//   console.log(req.body.commentId);
+//   res.redirect(`/wines/${wineId}`);
+// }
+
+function commentDelete(req, res) {
+
+  var wineId = req.body.wineId;
+  Comment
+    .findByIdAndRemove(req.body.commentId, function(err) {
+      if (err) throw err;
+    })
+    .then(() => {
+      res.redirect(`/wines/${wineId}`);
+    });
+}
 
 module.exports = {
-  create: commentCreate
+  create: commentCreate,
+  delete: commentDelete
 };
