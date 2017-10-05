@@ -42,6 +42,7 @@ function getItem(itemId, callback) {
 
 
 function searchApi(searchTerm, callback) {
+  searchTerm = encodeURIComponent(searchTerm);
   var options = {
     host: 'api.snooth.com',
     port: 80,
@@ -60,10 +61,11 @@ function searchApi(searchTerm, callback) {
       //convert data to json object
       var jsonResponse = JSON.parse(body);
       var wines = [];
+      if(jsonResponse.wines !== undefined){
       //loop through teh wines in the response and convert them into our view model
-      for (var i = 0; i < jsonResponse.wines.length; i++) {
-        wines.push(convertObj(jsonResponse.wines[i]));
-        // wines.push(convertObj(jsonResponse.wines.List[i]));
+        for (var i = 0; i < jsonResponse.wines.length; i++) {
+          wines.push(convertObj(jsonResponse.wines[i]));
+        }
       }
       //return the converted view models
       callback(wines);
