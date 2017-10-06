@@ -54,7 +54,7 @@ app.use((req, res, next) => {
       if (!user) {
         return req.session.regenerate(() => {
           console.log('danger', 'You must be logged in to view this content');
-          res.redirect('/');
+          res.redirect('/login');
         });
       }
     
