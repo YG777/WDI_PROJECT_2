@@ -2,9 +2,19 @@
 <header>
 <% if (locals.isLoggedIn) { %>
 <h1 class="homeh1"><%= locals.user.username %>'s Wine List</h1>
-<a name="" id="" class="btn" href="/search" role="button">Search</a>
-<a name="" id="" class="btn" href="/list" role="button">See your items</a>
 
+
+<div class="buttons-wrapper">
+
+<div>
+<a name="" id="" class="btn btn-lg" href="/search" role="button" style="background-color:#ff666a">Search</a>
+
+</div>
+<div class="btn2">
+<a name="" id="" class="btn btn-lg" href="/list" role="button" style="background-color:#ff666a">See your items</a>
+
+</div>
+</div>
  <% } else { %>
 <h1 class="homeh1">Welcome to Wine List</h1>
 <h2 class="homeh2">Join us and create your own</h2>

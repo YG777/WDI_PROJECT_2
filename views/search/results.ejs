@@ -5,7 +5,7 @@
        <div class="row" id="#holdstuff"> <% wines.forEach(function(wine){ %>
               <div class="card-deck">
                     <div class="card" id="winecard">
-                      <img class ="card-img-top" style="background-image:url(<%= wine.ImgLink %>)">
+                     <img class="card-img-top" src="<%= wine.ImgLink %>" alt="<%= wine.Name %>">
                         <div class="card-block">  
                             <a href="/wines/<%= wine.Id %>">
                             <h5 class="card-title"><%= wine.Name %></h5></a>
@@ -19,6 +19,7 @@
                       </div> 
                 </div>
                 <% }) %>
+                
            </div>
       </div> 
 </div>
