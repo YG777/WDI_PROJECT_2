@@ -2,6 +2,7 @@
 <h1>Search Results</h1>  
                            
     <div class="container-fluid">
+    <% if(wines.length > 0){ %>
        <div class="row" id="#holdstuff"> <% wines.forEach(function(wine){ %>
               <div class="card-deck">
                     <div class="card" id="winecard">
@@ -18,7 +19,12 @@
                         </div>
                       </div> 
                 </div>
-                <% }) %>
+                  <% }); %>
+            <% } else{ %>
+              <p>Try again, no matching results</p>
+               <a href="#" onclick="history.back();">Back</a>
+              <% } %>
+
                 
            </div>
       </div> 

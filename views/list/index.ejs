@@ -13,31 +13,21 @@
             <div class="card-block">
               <a href="/wines/<%= wine.Id %>">
                 <h5 class="card-title">
-                  <%= wine.Name %>
-                </h5>
-              </a>
-              <p class="card-text">
-                <%= wine.Vineyard %>
-              </p>
-              <p class="card-text">
-                <%= wine.Vintage %>
-              </p>
-
-
-
-
-                <form method="POST" action="/list">
-                  <input type="hidden" name="_method" value="DELETE">
-                  <input type="hidden" name="listItemId" value="<%= wine.listItemId %>" />
-                  <button>Delete</button>
-                </form>
+                  <%= wine.Name %></h5></a>
+                  <div>
+              <p class="card-text">Producer: <%= wine.Vineyard %></p>
+              <p class="card-text">Vintage: <%= wine.Vintage %></p> 
+            </div>
               </div>
 
+              <form method="POST" action="/list" id="card-delete">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="listItemId" value="<%= wine.listItemId %>" />
+                <button class="card-delete-btn">Delete</button>
+              </form>
             </div>
-
+ 
           </div>
-
-
           <% }); %>
             <% } else{ %>
               <p>Your list is empty</p>
@@ -48,3 +38,9 @@
   </div>
   <a href="#" onclick="history.back();">Back</a>
 </div>
+
+
+
+
+
+<div></div>
