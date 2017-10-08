@@ -14,23 +14,9 @@ function commentCreate(req, res) {
     .then(() => {
       res.redirect(`/wines/${wineId}`);
     });
-  // console.log(comment); 
-  // { wineId: 'cantina-di-soave-rosato-veneto',
-  // userId: 59d48d44933a8b08c97d55bb,
-  // comment: 'new commnet',
-  // username: 'kat' }   
-
 }
 
-// function commentDelete(req, res) {
-//   var wineId = req.body.wineId;
-
-//   console.log(req.body.commentId);
-//   res.redirect(`/wines/${wineId}`);
-// }
-
 function commentDelete(req, res) {
-
   var wineId = req.body.wineId;
   Comment
     .findByIdAndRemove(req.body.commentId, function(err) {
@@ -41,7 +27,18 @@ function commentDelete(req, res) {
     });
 }
 
+function commentEdit(req, res) {
+  var wineId = req.body.wineId;
+  var commentId = req.body.commentId;
+  var comment = req.body.comment;
+  Comment.findByIdAndUpdate(commentId, { comment })
+    .then(() => {
+      res.redirect(`/wines/${wineId}`);
+    });
+}
+
 module.exports = {
   create: commentCreate,
-  delete: commentDelete
+  delete: commentDelete,
+  edit: commentEdit
 };

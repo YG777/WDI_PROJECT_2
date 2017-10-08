@@ -39,7 +39,8 @@ router.route('/wines/:id')
 
 router.route('/comments')
   .post(secureRoute, comments.create)
-  .delete(secureRoute, comments.delete);
+  .delete(secureRoute, comments.delete)
+  .put(secureRoute, comments.edit);
 
 router.route('/register')
   .get(registrations.new)

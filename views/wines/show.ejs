@@ -1,34 +1,31 @@
-<h1>Search Item</h1>
 <div id="showWine">
-    <div class="container">
-        <div class="row">
-            <div class="card">
-                <div class="card-block">
+    <div class="container wine-cont">
+        <div class="row wine-row">
+            <div class="col-12 col-md-6 card wine-card">
+                <div class="wine-card-block">
                     <div><img src="<%= wine.Photo %>" style="width:auto" alt="<%= wine.Name %>" /></div>
                     <h2 class="card-title">
                         <%= wine.Name %>
                     </h2>
-                    <h4 class="card-text">
-                        <%= wine.Vinyard %>
-                    </h4>
-                    <p>
-                        <%= wine.Vintage %>
-                    </p>
-                    <p>
-                        <%= wine.Vineyard %>
-                    </p>
-                    <p>
-                        <%= wine.Vintage %>
-                    </p>
-                    <p>
-                        <%= wine.TypeOrColor %>
-                    </p>
-                    <p>
-                        <%= wine.Country %>
-                    </p>
-
+                    <p class="wine-card-text">Producer: <%= wine.Vineyard %></p>
+                    <p>Vintage:<span> <%= wine.Vintage %></p>
+                    <p>Type / Color: <span> <%= wine.TypeOrColor %> </p>
+                    <p>Grape:<span> <%= wine.Grape %></p>
+                    <p>Country:<span> <%= wine.Country %></p>
+                    <p>Tasting Notes: <span> <%= wine.WinemakerNotes %></p>
+            </div>
+            <div class="comments-block" col-6 col-md-4>
                     <h3>Comments</h3>
                     <% comments.forEach(function(comment){ %>
+                        <% if(comment._id == editcomment) { %>
+                            <form method="POST" action="/comments/">
+                                <input type="text" name="comment" value="<%= comment.comment %>" />
+                                <input type="hidden" name="_method" value="PUT">
+                                <input  type="hidden" name="commentId" value="<%= comment._id %>" />
+                                <input type="hidden" name="wineId" value="<%= wine.Id %>" />
+                                <button class="btn btn-danger">Edit</button>
+                        </form>
+                        <% } else { %>
                         <div class="row">
                             <div>
                                 <%= comment.username %>
@@ -41,7 +38,9 @@
                             </div>
 
                         </div>
+                        <%} %>
                         <div>
+                        <a href="/wines/<%= wine.Id %>?editcomment=<%= comment._id %>">Edit</a>
                             <form method="POST" action="/comments/">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input  type="hidden" name="commentId" value="<%= comment._id %>" />
@@ -58,8 +57,8 @@
                                 <button>Add Comment</button>
                             </form>
 
-
+                        </div>
                 </div>
-            </div>
+            
         </div>
     </div>

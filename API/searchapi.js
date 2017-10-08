@@ -20,26 +20,9 @@ function getItem(itemId, callback) {
       var jsonResponse = JSON.parse(body);
       var wine = convertObj(jsonResponse.wines[0]);
       callback(wine);
-    });
+    });    
   }).end();
-  // }
-
-  // res.on('end', function () {
-  //   var jsonResponse = JSON.parse(body);
-  //   var wine = [];
-  //   for (var i = 0; i < jsonResponse.wines.length; i++) {
-  //     wine.push(convertObj(jsonResponse.wines[i]));
-  //   }
-  //   console.log(wine);
-  //   console.log("hello");
-  // })
-  //   .end();
-  // });
 }
-
-
-
-
 
 function searchApi(searchTerm, callback) {
   searchTerm = encodeURIComponent(searchTerm);
@@ -84,6 +67,7 @@ function convertObj(jsonApiWine) {
   wine.VineyardId = jsonApiWine.winery_id;
   wine.Grape = jsonApiWine.varietal;
   wine.Vintage = jsonApiWine.vintage;
+  wine.WinemakerNotes = jsonApiWine.wm_notes;
   if (typeof (jsonApiWine.color) !== 'undefined') {
     wine.TypeOrColor = jsonApiWine.color;
   } else {
@@ -95,6 +79,8 @@ function convertObj(jsonApiWine) {
   }
   return wine;
 }
+
+
 
 module.exports = {
   searchApi: searchApi,
