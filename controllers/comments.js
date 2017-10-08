@@ -1,30 +1,44 @@
+const Comment = require('../models/comment');
 
+function commentCreate(req, res) {
+  const wineId = req.body.wineId;
+  var comment = {
+    wineId: req.body.wineId,
+    userId: req.session.userId,
+    comment: req.body.comment,
+    username: req.session.username
+  };
 
-// function commentsCreate(req, res) {
-//   Wine
-//     .findById(req.params.id)
-//     .exec()
-//     .then(wine => {
-//       req.body.user = req.user._id;
-//       wine.comments.push(req.body);
-//       wine.save();
-//       res.redirect(`/wines/${wine._id}`);
-//     });
-// }
+  Comment
+    .create(comment)
+    .then(() => {
+      res.redirect(`/wines/${wineId}`);
+    });
+}
 
-// function commentsDelete(req, res) {
-//   Wine
-//     .findById(req.params.wineId)
-//     .exec()
-//     .then(wine => {
-//       const comment = wine.comments.id(req.params.commentId);
-//       comment.remove();
-//       wine.save();
-//       res.redirect(`/wines/${wine._id}`);
-//     });
-// }
+function commentDelete(req, res) {
+  var wineId = req.body.wineId;
+  Comment
+    .findByIdAndRemove(req.body.commentId, function(err) {
+      if (err) throw err;
+    })
+    .then(() => {
+      res.redirect(`/wines/${wineId}`);
+    });
+}
 
-// module.exports = {
-//   create: commentsCreate,
-//   delete: commentsDelete
-// };
+function commentEdit(req, res) {
+  var wineId = req.body.wineId;
+  var commentId = req.body.commentId;
+  var comment = req.body.comment;
+  Comment.findByIdAndUpdate(commentId, { comment })
+    .then(() => {
+      res.redirect(`/wines/${wineId}`);
+    });
+}
+
+module.exports = {
+  create: commentCreate,
+  delete: commentDelete,
+  edit: commentEdit
+};
