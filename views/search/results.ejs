@@ -7,16 +7,18 @@
               <div class="card-deck">
                     <div class="card" id="winecard">
                      <img class="card-img-top" src="<%= wine.ImgLink %>" alt="<%= wine.Name %>">
+
                         <div class="card-block">  
                             <a href="/wines/<%= wine.Id %>">
                             <h5 class="card-title"><%= wine.Name %></h5></a>
                              <p class="card-text"><%= wine.Vineyard %></p> 
                               <p class="card-text"><%= wine.Vintage %></p> 
+                         </div>
                               <form action="/list" method="post">
                                  <input type="hidden" name="wineId" value="<%= wine.Id %>"/>
                                 <button>Add to my list</button>
                             </form>
-                        </div>
+                       
                       </div> 
                 </div>
                   <% }); %>
@@ -24,8 +26,6 @@
               <p>Try again, no matching results</p>
                <a href="#" onclick="history.back();">Back</a>
               <% } %>
-
-                
            </div>
       </div> 
 </div>
