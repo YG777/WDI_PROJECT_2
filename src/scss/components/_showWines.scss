@@ -1,29 +1,53 @@
+.wine-cont {
+    width:70%;
+}
+.wine-details-holder{
+    // border: 1px solid green;
+    float:left;
+    overflow: hidden; 
+    padding-top: 2%;
+    
+    h4{
+        text-align: left;
+        padding-left: 25%;
+        
+    }
 
-.showWine{
-background-color: yellow;
+    img {
+        max-height: 459px;
+        margin-bottom: 3%;
+    }
 }
-.wine-cont{
-    background-color: blue;
+.details-and-comments {
+    float: right;
+    margin-left: 0;
+    overflow: hidden; 
+    padding-top: 2%,
 }
-.wine-row{
-    // background-color:green;
-    background-color:#c2c2b2;
+.comments-block {
+ text-align: left;
 }
-.wine-card{
-    background-color: greenyellow;
-    // width: 50%; text-align: left;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        margin-left: 25%;
-        border-radius: 15px;
+.comment-username {
+font-style: italic;
+font-weight: 600;
 }
-.wine-card-block {
-    background-color: red;
+.comment-text {
+    // background-color: yellow;
+}
+.wine-show-h2 {
+    padding-bottom: 2%;
 }
 
-.wine-card-text {
-    background-color: pink;
+
+.btn-group{
+    
 }
+
+
+
+
+
+
 // .row {
 //     background-color:#c2c2b2;
 //     border-radius: 15px;

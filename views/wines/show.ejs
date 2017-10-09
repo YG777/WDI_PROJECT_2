@@ -1,64 +1,78 @@
-<div id="showWine">
-    <div class="container wine-cont">
-        <div class="row wine-row">
-            <div class="col-12 col-md-6 card wine-card">
-                <div class="wine-card-block">
-                    <div><img src="<%= wine.Photo %>" style="width:auto" alt="<%= wine.Name %>" /></div>
-                    <h2 class="card-title">
-                        <%= wine.Name %>
-                    </h2>
-                    <p class="wine-card-text">Producer: <%= wine.Vineyard %></p>
-                    <p>Vintage:<span> <%= wine.Vintage %></p>
-                    <p>Type / Color: <span> <%= wine.TypeOrColor %> </p>
-                    <p>Grape:<span> <%= wine.Grape %></p>
-                    <p>Country:<span> <%= wine.Country %></p>
-                    <p>Tasting Notes: <span> <%= wine.WinemakerNotes %></p>
-            </div>
-            <div class="comments-block" col-6 col-md-4>
-                    <h3>Comments</h3>
-                    <% comments.forEach(function(comment){ %>
-                        <% if(comment._id == editcomment) { %>
-                            <form method="POST" action="/comments/">
-                                <input type="text" name="comment" value="<%= comment.comment %>" />
-                                <input type="hidden" name="_method" value="PUT">
-                                <input  type="hidden" name="commentId" value="<%= comment._id %>" />
-                                <input type="hidden" name="wineId" value="<%= wine.Id %>" />
-                                <button class="btn btn-danger">Edit</button>
-                        </form>
-                        <% } else { %>
-                        <div class="row">
-                            <div>
-                                <%= comment.username %>
-                            </div>
+<div class="container wine-cont">
+    <section class="col-lg-8 col-sm-12 wine-details-holder">
+     <h2 class="card-title wine-show-h2">
+            <%= wine.Name %>
+        </h2>
+        <div>
+            <img class="img-fluid" src="<%= wine.Photo %>" style="width:auto" alt="<%= wine.Name %>" />
+        </div>
+       
+        <h4>Producer:
+            <%= wine.Vineyard %>
+        </h4>
+        <h4>Vintage:
+            <span>
+                <%= wine.Vintage %>
+        </h4>
+        <h4>Type / Color:
+            <span>
+                <%= wine.TypeOrColor %>
+        </h4>
+        <h4>Grape:
+            <span>
+                <%= wine.Grape %>
+        </h4>
+        <h4>Country:
+            <span>
+                <%= wine.Country %>
+        </h4>
+        <h4>Tasting Notes:
+            <span>
+                <%= wine.WinemakerNotes %>
+        </h4>
+    </section>
 
-                            <div class="comment-box">
-                                <%= comment.comment %>
-                            </div>
-                            <div>
-                            </div>
+    <aside class="col-lg-4 col-sm-12 details-and-comments">
 
+        <div class="comments-block">
+            <h3>Comments</h3>
+            <% comments.forEach(function(comment){ %>
+                <% if(comment._id == editcomment) { %>
+                    <form method="POST" action="/comments/">
+                        <input type="text" name="comment" value="<%= comment.comment %>" />
+                        <input type="hidden" name="_method" value="PUT">
+                        <input type="hidden" name="commentId" value="<%= comment._id %>" />
+                        <input type="hidden" name="wineId" value="<%= wine.Id %>" />
+                        <button>Save</button>
+                    </form>
+                    <% } else { %>
+                        <div class="comment-username">
+                            <%= comment.username %>
+                        </div>
+                        <div class="comment-text">
+                            <%= comment.comment %>
                         </div>
                         <%} %>
-                        <div>
-                        <a href="/wines/<%= wine.Id %>?editcomment=<%= comment._id %>">Edit</a>
-                            <form method="POST" action="/comments/">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input  type="hidden" name="commentId" value="<%= comment._id %>" />
-                                <input  type="hidden" name="wineId" value="<%= wine.Id %>" />
-                                <button class="btn btn-danger">Delete</button>
-                            </form>
-                        </div>
-                        <% }) %>
+                    <div class="btn-group btn-group">
 
-                            <form action="/comments/" method="post">
-                                <input type="text" name="comment" />
+                            <button class="btn-with-link">
+                                    <a href="/wines/<%= wine.Id %>?editcomment=<%= comment._id %>">Edit</a>
+                                </button>
+                                <form method="POST" action="/comments/">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="commentId" value="<%= comment._id %>" />
+                                    <input type="hidden" name="wineId" value="<%= wine.Id %>" />
+                                    <button class="">Delete</button>
+                                </form>
+                    </div>
+                           
+             <% }) %>
+            <form action="/comments/" method="post">
+                <input type="text" name="comment" />
 
-                                <input type="hidden" name="wineId" value="<%= wine.Id %>" />
-                                <button>Add Comment</button>
-                            </form>
-
-                        </div>
-                </div>
-            
-        </div>
+                <input type="hidden" name="wineId" value="<%= wine.Id %>" />
+                <button>Add Comment</button>
+            </form>
+            <div>
+    </aside>
     </div>
