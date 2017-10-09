@@ -53,19 +53,21 @@
                             <%= comment.comment %>
                         </div>
                         <%} %>
-                    <div class="btn-group btn-group">
-
-                            <button class="btn-with-link">
-                                    <a href="/wines/<%= wine.Id %>?editcomment=<%= comment._id %>">Edit</a>
-                                </button>
-                                <form method="POST" action="/comments/">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="commentId" value="<%= comment._id %>" />
-                                    <input type="hidden" name="wineId" value="<%= wine.Id %>" />
-                                    <button class="">Delete</button>
-                                </form>
+                    <div class="comments-form-wrapper">
+                    <div class="edit-btn-wrapper">
+                        <button class="btn-with-link">
+                        <a href="/wines/<%= wine.Id %>?editcomment=<%= comment._id %>">Edit</a>
+                        </button>
                     </div>
-                           
+                    <div class="comment-form-wrapper">
+                    <form class="comment-form" method="POST" action="/comments/">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="commentId" value="<%= comment._id %>" />
+                        <input type="hidden" name="wineId" value="<%= wine.Id %>" />
+                        <button class="comment-delete">Delete</button>
+                    </form>
+                   </div>                   
+                    </div>  
              <% }) %>
             <form action="/comments/" method="post">
                 <input type="text" name="comment" />

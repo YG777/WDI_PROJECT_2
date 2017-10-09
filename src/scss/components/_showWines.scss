@@ -37,3 +37,32 @@ font-weight: 600;
 }
 
 
+.btn-with-link,.comment-form button  {
+    height: 30px;
+}
+
+.comments-form-wrapper{
+    margin:0;
+ 
+}
+
+.edit-btn-wrapper button, .comment-form-wrapper button{
+   width: 60px;
+   height: 22px;
+   font-size: 12px;
+
+}
+.edit-btn-wrapper, .comment-form-wrapper{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+// .comment-form-wrapper{
+// background-color: red;
+// }
+
+// .edit-btn-wrapper{
+
+// }
+
