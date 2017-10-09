@@ -27,6 +27,14 @@
 .comments-block {
  text-align: left;
 }
+
+.comment-text {
+    background-color: rgb(221, 231, 219);
+    border-radius: 6px; 
+    font-size: 16px;   
+    padding: 1% 2%; 
+    font-style: italic; 
+}
 .comment-username {
 font-style: italic;
 font-weight: 600;
@@ -47,10 +55,14 @@ font-weight: 600;
 }
 
 .edit-btn-wrapper button, .comment-form-wrapper button{
-   width: 60px;
+   min-width: 40px;
    height: 22px;
-   font-size: 12px;
-
+   font-size: 14px;
+   border: none;
+   background-color: transparent;
+   text-align: left;
+   font-weight: 400;
+  
 }
 .edit-btn-wrapper, .comment-form-wrapper{
     display: inline-block;
@@ -58,11 +70,22 @@ font-weight: 600;
     padding: 0;
 }
 
-// .comment-form-wrapper{
-// background-color: red;
-// }
-
-// .edit-btn-wrapper{
-
-// }
+.add-comment-btn{
+    color:#ff666a;
+    background-color: #f6f6f4;
+    border: 1px solid #2b5737;
+    border-radius: 4px;
+    margin-top:1%;
+    }
+    .comment-form input {
+        // width: 250px;
+        // height: 37px;
+        // border-radius: 5px;  
+        // outline: none;
+        // box-shadow:none;
+        border: 1px solid #2b5737;
+    }
+    .comment-form {
+        padding-top:0;
+    }
 
