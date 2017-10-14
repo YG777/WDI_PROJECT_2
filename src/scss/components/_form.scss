@@ -3,6 +3,7 @@
     background-color: #f6f6f4;
     border: 1px solid #2b5737;
     }
+
     form input {
         width: 250px;
         height: 37px;
@@ -15,4 +16,35 @@
         padding-top: 2%;
     }
 
-    
+    @media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        form{
+          margin: auto 0;
+          width: 100%;
+          text-align: center;
+          }
+
+          #search-btn, form input {
+            border-radius:5px;
+            border: 1px solid #2b5737;
+            height: 75px;
+        }
+        
+        #search-btn {
+        width:15%;
+        font-size: 200%;
+        margin-bottom: 1%;
+     
+        }
+
+        form input {
+            width: 50%;
+            font-size: 200%;  
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+
+
+    }    
