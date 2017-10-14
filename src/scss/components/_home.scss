@@ -58,5 +58,36 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .homeh2{
     font-size: 7em;
 }
+.block1{
+    background-image: url('../images/background-sml.jpg'); 
+}
+// ----LOGIN FORM------
+.login-container-mobile {
+    width: 100%;
+    h1{
+        padding-top: 10%;
+        margin-left: 4%;
+        margin-right:4%;
+        font-size: 4.5em;
+    }
+    #loginbox{
+        margin-left: 15%;
+        font-size: 2.5em;
+        h3 {
+            font-size: 2em;
+        }
+        input{
+            font-size: 2.5em;
+        }
+        button {
+            font-size: 1em;
+        }
+        input{
+            height: 2em;
+            width:140%;
+            font-size:1.1em;
+        }
+    }
+}
 
 }
