@@ -73,10 +73,16 @@ h1 {
 and (min-device-width: 320px) 
 and (max-device-width: 480px)
 and (-webkit-min-device-pixel-ratio: 2) {
-  
+    .card-block {
+        height: 38%;
+        padding-top: 3%;
+        padding-left: 4%;
+        padding-right: 2%;
+
+    }
           #winecard {
           width: 286px;
-          height: 420px; 
+          height: 450px; 
           img {
              width: 75%;
               margin-top: 2%;
@@ -89,13 +95,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
               font-size: 140%;              
           }
 
-         
           button {
               font-size: 120%;
               font-style: italic;
               font-weight: 600;
               padding-bottom: 1px;
           }
-         
       }
 }
