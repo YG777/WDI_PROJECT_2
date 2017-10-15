@@ -111,7 +111,7 @@ font-weight: 600;
             font-size: 200%;
           }
 
-          .comment-form input {
+          .comment-form input, .edit-comment-form-hidden input  {
             width: 98%;
             height: 120px;
             word-wrap: normal;
@@ -123,7 +123,7 @@ font-weight: 600;
             font-size: 150%;
         }
 
-        .edit-btn-wrapper button{
+        .edit-btn-wrapper button,  .edit-comment-form-hidden button{
             font-size: 150%;
         }
     }
