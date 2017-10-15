@@ -67,3 +67,35 @@ p{
 h1 {
     padding: 2%;
 }
+
+
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  
+          #winecard {
+          width: 286px;
+          height: 420px; 
+          img {
+             width: 75%;
+              margin-top: 2%;
+              padding-bottom: 3px;
+          }
+          
+          p, h5 {
+              margin:0; 
+              text-align: left;
+              font-size: 140%;              
+          }
+
+         
+          button {
+              font-size: 120%;
+              font-style: italic;
+              font-weight: 600;
+              padding-bottom: 1px;
+          }
+         
+      }
+}

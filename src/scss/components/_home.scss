@@ -21,6 +21,7 @@ header{
 }
 .homeh1, .homeh2 {
     color: #f6f6f4;
+    opacity: 0.8;
 }
 
 .homeh1 {
@@ -36,10 +37,13 @@ header{
 .buttons-wrapper {
 margin:auto 0;
 width: 100%;
+margin-top: 2%;
 }
 .buttons-wrapper div a{
-width: 200px;
+width: 400px;
+height: 100px;
 color: #f6f6f4;
+font-size: 2.5em;
 }
 
 .buttons-wrapper div {
@@ -51,43 +55,58 @@ color: #f6f6f4;
 and (min-device-width: 320px) 
 and (max-device-width: 480px)
 and (-webkit-min-device-pixel-ratio: 2) {
-.homeh1{
-    font-size: 10em;
-}
+    .homeh1{
+        font-size: 10em;
+    }
 
-.homeh2{
-    font-size: 7em;
-}
-.block1{
-    background-image: url('../images/background-sml.jpg'); 
-}
-// ----LOGIN FORM------
-.login-container-mobile {
-    width: 100%;
-    h1{
-        padding-top: 10%;
-        margin-left: 4%;
-        margin-right:4%;
-        font-size: 4.5em;
+    .homeh2{
+        font-size: 7em;
     }
-    #loginbox{
-        margin-left: 15%;
-        font-size: 2.5em;
-        h3 {
-            font-size: 2em;
+
+    .block1{
+        background-image: url('../images/background-sml.jpg'); 
+    }
+
+    // ----LOGIN FORM------
+    .login-container-mobile {
+        width: 100%;
+        h1{
+            padding-top: 10%;
+            margin-left: 4%;
+            margin-right:4%;
+            font-size: 4.5em;
         }
-        input{
+        #loginbox{
+            margin-left: 15%;
             font-size: 2.5em;
-        }
-        button {
-            font-size: 1em;
-        }
-        input{
-            height: 2em;
-            width:140%;
-            font-size:1.1em;
+            h3 {
+                font-size: 2em;
+            }
+            input{
+                font-size: 2.5em;
+            }
+            button {
+                font-size: 1em;
+            }
+            input{
+                height: 2em;
+                width:140%;
+                font-size:1.1em;
+            }
         }
     }
-}
+
+    .buttons-wrapper{
+        height: 260px;
+        margin-top: 4%;
+    }
+
+    .buttons-wrapper div a{
+        width: 60%;
+        height: 100px;
+        padding-top: 2%;
+        font-size: 250%
+        
+        }
 
 }
