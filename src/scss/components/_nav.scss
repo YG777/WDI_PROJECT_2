@@ -24,7 +24,9 @@ and (min-device-width: 320px)
 and (max-device-width: 480px)
 and (-webkit-min-device-pixel-ratio: 2) {
    #brand {
-        // font-size:20px;
+    font-size: 250%;
+   padding-bottom: 2%;
+   padding-top: 2%;
     }
 
    #toggle-btn {

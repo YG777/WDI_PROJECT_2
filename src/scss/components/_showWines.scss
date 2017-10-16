@@ -72,12 +72,13 @@ font-weight: 600;
 .edit-btn-wrapper a:hover {
     text-decoration: none;
 }
-.add-comment-btn{
+.add-comment-btn, .save-btn{
     color:#ff666a;
     background-color: #f6f6f4;
     border: 1px solid #2b5737;
     border-radius: 4px;
     margin-top:1%;
+
     }
 .comment-form input {
         // width: 250px;
