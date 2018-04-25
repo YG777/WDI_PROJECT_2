@@ -31,7 +31,6 @@ function listIndex(req, res) {
       var wines = [];
  
       list.forEach(function (listItem) {
-        //convert it -> done in the api?
         //pass the array to render function
         Api.getItem(listItem.wineId, function (wine) {
           // console.log(listItem);

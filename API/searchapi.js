@@ -45,7 +45,7 @@ function searchApi(searchTerm, callback) {
       var jsonResponse = JSON.parse(body);
       var wines = [];
       if(jsonResponse.wines !== undefined){
-      //loop through teh wines in the response and convert them into our view model
+      //loop through the wines in the response and convert them into our view model
         for (var i = 0; i < jsonResponse.wines.length; i++) {
           wines.push(convertObj(jsonResponse.wines[i]));
         }
