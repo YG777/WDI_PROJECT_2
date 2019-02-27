@@ -6,8 +6,7 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const session = require('express-session');
-// this causes the site to slow down hugely
-// const flash = require('express-flash');
+
 const routes = require('./config/routes');
 const User = require('./models/user');
 const {
@@ -66,8 +65,6 @@ app.use((req, res, next) => {
       next();
     });
 });
-
-// app.use(flash());
 
 app.use(routes);
 
