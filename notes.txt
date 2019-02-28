@@ -1,0 +1,5 @@
+sudo mongod
+nodemon
+
+check if localhost has running processes: sudo lsof -i :3000
+kill process: kill -9 {PID}
