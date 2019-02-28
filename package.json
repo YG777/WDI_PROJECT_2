@@ -37,6 +37,7 @@
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.15.6",
+    "forever": "^0.15.3",
     "method": "^2.0.0",
     "method-override": "^2.3.10",
     "mongoose": "^5.4.16",
